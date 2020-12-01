@@ -1,0 +1,38 @@
+var report =function (Yards, Meters) {///the way the output will come out
+
+    document.getElementById("result").innerHTML =
+        Meters + " m = " + Yards + " Yard";
+
+};
+
+var error = function() {//function that will give a error if incorrect input
+    document.getElementById("result").innerHTML = "ERROR: The input desired is not valid. Please enter a valid input.";
+  
+}
+
+document.getElementById("y_to_m").onclick = function () {//this function is for yards to meters
+
+    var y = document.getElementById("Measurement").value;
+ 
+    if(y<0){//to make sure that it is not a negative number and if so go back to error mesage
+    error();
+    return;
+    }
+    var temp = y * .9144;//the math to go from yards to meters
+    report(y,temp.toPrecision(6));///i wanted to display only certain amount of numbers
+
+};
+
+
+
+document.getElementById("m_to_y").onclick = function () {//this function is for meters to yards
+
+    var m = document.getElementById("Measurement").value;
+   if(m<0){//if negative number go back to error message
+      error();
+    return;   
+   }
+    var temp = m * 1.09361;//the math to go from meters to yards.
+    report( temp.toPrecision(6),m);///i wanted to display only certain amount of numbers
+
+};
